@@ -1,0 +1,11 @@
+# docker-compose.yml
+
+version: '3'
+services:
+  spark:
+    build: ./spark
+    volumes:
+      - ./data:/data
+    environment:
+      - SPARK_MASTER=local
+    command: ["spark-submit", "/opt/spark/app/word_count.py"]
